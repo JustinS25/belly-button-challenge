@@ -59,7 +59,7 @@ function createCharts(newChoice){
         type: "bar"
       };
     
-    // set data equal to trace1
+    // Set data equal to trace1
     var data = [trace1];
 
     // Plot horizontal bar chart
@@ -78,7 +78,7 @@ function createCharts(newChoice){
       };
       
     
-    // set data equal to trace2
+    // Set data equal to trace2
     data = [trace2];
 
     // Plot bubble chart
@@ -92,15 +92,20 @@ function createCharts(newChoice){
 function demographics(newChoice){
     d3.json(url).then((data) =>{
 
-    let resultArray = data.samples.filter(sampleObj => sampleObj.id == newChoice);
+    // Pull resulting variables from metadata
+    let resultArray = data['metadata'].filter(sampleObj => sampleObj.id == newChoice);
     // Store resulting id info to display to demographic info portion
     let result = resultArray[0];
-    let resultId = parseInt(result.id);
-    console.log(resultId);
 
-    // Add to demographic info
-    let demographicInfo = d3.select(".panel-body").text('Id: ' + resultId);
-    console.log(demographicInfo);
+    // Select table
+    let demoInfo = d3.select(".panel-body");
+    // Delete what was previously in demoInfo
+    demoInfo.html("")
+
+    // Loop through result to display all values in demographic info table
+    for (key in result){
+      demoInfo.append("h6").text(`${key}: ${result[key]}`);
+    };
 
 })
 };
