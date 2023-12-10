@@ -1,5 +1,9 @@
 # belly-button-challenge
 
+## GitHub Pages Deployment
+
+https://justins25.github.io/belly-button-challenge/
+
 ## Citations
 
 - ASK BCS provided outline of code involving the init(), buildCharts(), and optionChanged() functions. Provided code/explanations to help with each portion of selecting from the dropdown menu, updating/refreshing the data on the page when a new ID is picked, creating a resulting array to hold information for each id, etc. Prior to the help, most of my code ran partially and did not update the page as expected
